@@ -1,7 +1,7 @@
 #include "hooking/DetourHook.hpp"
 #include "hooks/Hooks.hpp"
 
-#include <Psapi.h>
+#include <psapi.h>
 
 namespace NewBase
 {

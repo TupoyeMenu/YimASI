@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.20.x)
 
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+
+include(cmake/crosscompile.cmake)
+
 project(WTSAPI32 VERSION 1001.0.0 DESCRIPTION "YimMenu ASI Loader")
 
 # libs

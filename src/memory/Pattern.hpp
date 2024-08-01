@@ -81,7 +81,7 @@ namespace NewBase
 			return m_Signature;
 		}
 
-		friend std::ostream& operator<< <>(std::ostream& os, const Pattern<S>& signature);
+		friend std::ostream& operator<<(std::ostream& os, const Pattern<S>& signature);
 	};
 
 	template<Signature S>

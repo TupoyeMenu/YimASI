@@ -35,7 +35,7 @@ namespace NewBase
 	inline DetourHook<T>::DetourHook(const std::string_view name, void* target, T detour) :
 	    BaseHook(name),
 	    m_TargetFunc(target),
-	    m_DetourFunc(detour),
+	    m_DetourFunc((void*)detour),
 	    m_OriginalFunc(nullptr)
 	{
 		// OptimizeHook();

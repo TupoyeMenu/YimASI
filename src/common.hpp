@@ -1,6 +1,6 @@
 #pragma once
 // clang-format off
-#include <Windows.h>
+#include <windows.h>
 #undef max
 
 #include <AsyncLogger/Logger.hpp>

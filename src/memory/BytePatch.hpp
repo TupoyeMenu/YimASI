@@ -19,9 +19,6 @@ namespace NewBase
         std::unique_ptr<byte[]> m_Original;
         std::size_t m_Size;
 
-    protected:
-        static inline std::vector<std::unique_ptr<BytePatch>> m_Patches;
-
     public:
         virtual ~BytePatch();
 
@@ -49,17 +46,19 @@ namespace NewBase
 
     };
 
+    static inline std::vector<std::unique_ptr<BytePatch>> gPatches;
+
 	template<typename TAddr>
 	inline const std::unique_ptr<BytePatch>& BytePatch::Make(TAddr addr, std::remove_pointer_t<std::remove_reference_t<TAddr>> value)
 	{
-		return m_Patches.emplace_back(std::unique_ptr<BytePatch>(new BytePatch(addr, value)));
+		return gPatches.emplace_back(std::unique_ptr<BytePatch>(new BytePatch(addr, value)));
 	}
 
 	template<typename TAddr, typename T>
     requires SpanCompatibleType<T>
 	inline const std::unique_ptr<BytePatch>& BytePatch::Make(TAddr addr, T spanCompatible)
 	{
-		return m_Patches.emplace_back(std::unique_ptr<BytePatch>(new BytePatch(addr, std::span{spanCompatible})));
+		return gPatches.emplace_back(std::unique_ptr<BytePatch>(new BytePatch(addr, std::span{spanCompatible})));
 	}
     
     template<typename TAddr>

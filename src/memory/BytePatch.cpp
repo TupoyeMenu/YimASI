@@ -27,15 +27,15 @@ namespace NewBase
 
 	void BytePatch::Remove() const
 	{
-		if (const auto it = std::find(m_Patches.begin(), m_Patches.end(), this); it != m_Patches.end())
+		if (const auto it = std::find(gPatches.begin(), gPatches.end(), this); it != gPatches.end())
 		{
-			m_Patches.erase(it);
+			gPatches.erase(it);
 		}
 	}
 
 	void BytePatch::RestoreAll()
 	{
-		m_Patches.clear();
+		gPatches.clear();
 	}
 
 	bool operator==(const std::unique_ptr<BytePatch>& a, const BytePatch* b)

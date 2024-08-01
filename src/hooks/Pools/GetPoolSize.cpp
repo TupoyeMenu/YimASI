@@ -33,7 +33,7 @@ namespace NewBase
 
 		if (s_PoolSizeOverrides.count(hash))
 		{
-			LOG(VERBOSE) << __FUNCTION__ ": " << HEX(hash) << ": " << value << " -> " << s_PoolSizeOverrides.at(hash);
+			LOG(VERBOSE) << __FUNCTION__ << ": " << HEX(hash) << ": " << value << " -> " << s_PoolSizeOverrides.at(hash);
 			return s_PoolSizeOverrides.at(hash);
 		}
 
